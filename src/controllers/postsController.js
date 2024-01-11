@@ -9,8 +9,8 @@ const getPosts = async (req, res) => {
     const pageSize = parseInt(req.query.pageSize) || 5;
     const skip = (page -1) * pageSize;
     const [posts, totalCount] = await Promise.all([
-      db.posts.find({}).sort({ createdAt: -1 }).skip(skip).limit(pageSize).toArray(),
-      db.posts.countDocuments({}),
+      db.posts.find().sort({ createdAt: -1 }).skip(skip).limit(pageSize).toArray(),
+      db.posts.countDocuments(),
     ]);
     const totalPages = Math.ceil(totalCount / pageSize);
     res.status(200).json({

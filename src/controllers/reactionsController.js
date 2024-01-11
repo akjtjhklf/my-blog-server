@@ -81,7 +81,7 @@ const handleReaction = async (req, res) => {
           postId,
           totalReactions,
           reactionType,
-          existingReaction, // Include user's reaction information in the response
+  // Include user's reaction information in the response
         },
         isSuccess: true,
       });
